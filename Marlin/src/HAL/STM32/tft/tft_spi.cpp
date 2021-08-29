@@ -19,9 +19,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-#include "../../platforms.h"
-
-#ifdef HAL_STM32
+#if defined(ARDUINO_ARCH_STM32) && !defined(STM32GENERIC) && !defined(MAPLE_STM32F1)
 
 #include "../../../inc/MarlinConfig.h"
 
@@ -242,4 +240,4 @@ void TFT_SPI::TransmitDMA(uint32_t MemoryIncrease, uint16_t *Data, uint16_t Coun
 }
 
 #endif // HAS_SPI_TFT
-#endif // HAL_STM32
+#endif // ARDUINO_ARCH_STM32 && !STM32GENERIC && !MAPLE_STM32F1

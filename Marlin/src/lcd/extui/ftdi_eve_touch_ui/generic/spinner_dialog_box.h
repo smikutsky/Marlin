@@ -29,20 +29,13 @@ struct SpinnerDialogBoxData {
   bool auto_hide;
 };
 
-class SpinnerDialogBox : public UIScreen {
+class SpinnerDialogBox : public DialogBoxBaseClass, public CachedScreen<SPINNER_CACHE,SPINNER_DL_SIZE> {
   public:
-    static void onEntry();
-    static void onExit();
     static void onRedraw(draw_mode_t);
-    static void onRefresh();
     static void onIdle();
 
-    static void show(progmem_str);
+    static void show(const progmem_str);
     static void hide();
-
-    template<typename T>
-    static void enqueueAndWait(T commands) {enqueueAndWait(GET_TEXT_F(MSG_PLEASE_WAIT), commands);}
-
-    static void enqueueAndWait(progmem_str message, char *commands);
-    static void enqueueAndWait(progmem_str message, progmem_str commands);
+    static void enqueueAndWait_P(const progmem_str commands);
+    static void enqueueAndWait_P(const progmem_str message, const progmem_str commands);
 };

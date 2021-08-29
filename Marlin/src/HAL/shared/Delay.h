@@ -160,7 +160,7 @@ void calibrate_delay_loop();
   // Delay in microseconds
   #define DELAY_US(x) DELAY_CYCLES((x) * ((F_CPU) / 1000000UL))
 
-#elif defined(ESP32) || defined(__PLAT_LINUX__) || defined(__PLAT_NATIVE_SIM__)
+#elif defined(__PLAT_LINUX__) || defined(ESP32)
 
   // DELAY_CYCLES specified inside platform
 

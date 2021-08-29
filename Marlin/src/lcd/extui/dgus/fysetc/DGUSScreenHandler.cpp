@@ -42,8 +42,6 @@
 
 #if ENABLED(SDSUPPORT)
 
-  static ExtUI::FileList filelist;
-
   void DGUSScreenHandler::DGUSLCD_SD_FileSelected(DGUS_VP_Variable &var, void *val_ptr) {
     uint16_t touched_nr = (int16_t)swap16(*(uint16_t*)val_ptr) + top_file;
     if (touched_nr > filelist.count()) return;
@@ -85,7 +83,7 @@
 
       case 1: // Pause
 
-        GotoScreen(DGUSLCD_SCREEN_SDPRINTMANIPULATION);
+        GotoScreen(MKSLCD_SCREEN_PAUSE);
         if (!ExtUI::isPrintingFromMediaPaused()) {
           ExtUI::pausePrint();
           //ExtUI::mks_pausePrint();
@@ -161,7 +159,7 @@ void DGUSScreenHandler::HandleManualMove(DGUS_VP_Variable &var, void *val_ptr) {
     }
   #endif
   char axiscode;
-  unsigned int speed = 1500; // FIXME: get default feedrate for manual moves, don't hardcode.
+  unsigned int speed = 1500; // FIXME: get default feedrate for manual moves, dont hardcode.
 
   switch (var.VP) {
     default: return;
@@ -411,15 +409,8 @@ bool DGUSScreenHandler::loop() {
     if (!booted && TERN0(POWER_LOSS_RECOVERY, recovery.valid()))
       booted = true;
 
-    if (!booted && ELAPSED(ms, BOOTSCREEN_TIMEOUT)) {
+    if (!booted && ELAPSED(ms, TERN(USE_MKS_GREEN_UI, 1000, BOOTSCREEN_TIMEOUT)))
       booted = true;
-
-      if (TERN0(POWER_LOSS_RECOVERY, recovery.valid()))
-        GotoScreen(DGUSLCD_SCREEN_POWER_LOSS);
-      else
-        GotoScreen(DGUSLCD_SCREEN_MAIN);
-    }
-
   #endif
   return IsScreenComplete();
 }
