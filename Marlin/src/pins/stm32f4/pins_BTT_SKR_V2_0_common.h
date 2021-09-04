@@ -446,6 +446,60 @@
     #define BTN_EN1                  EXP2_08_PIN
     #define BTN_EN2                  EXP2_06_PIN
 
+  #elif ENABLED(MKS_TS35_V2_0)
+
+    #ifndef TOUCH_CALIBRATION_X
+      #define TOUCH_CALIBRATION_X           -17253
+    #endif
+    #ifndef TOUCH_CALIBRATION_Y
+      #define TOUCH_CALIBRATION_Y            11579
+    #endif
+    #ifndef TOUCH_OFFSET_X
+      #define TOUCH_OFFSET_X                   514
+    #endif
+    #ifndef TOUCH_OFFSET_Y
+      #define TOUCH_OFFSET_Y                   -24
+    #endif
+    #ifndef TOUCH_ORIENTATION
+      #define TOUCH_ORIENTATION    TOUCH_LANDSCAPE
+    #endif
+
+    #define TFT_CS_PIN                        EXP1_04_PIN
+    #define TFT_SCK_PIN                       EXP2_09_PIN
+    #define TFT_MISO_PIN                      EXP2_10_PIN
+    #define TFT_MOSI_PIN                      EXP2_05_PIN
+    #define TFT_DC_PIN                        EXP1_03_PIN
+    #define TFT_RST_PIN                       EXP1_07_PIN
+    #define TFT_A0_PIN                        TFT_DC_PIN
+
+    #define TFT_RESET_PIN                     EXP1_07_PIN
+    #define TFT_BACKLIGHT_PIN                 EXP1_08_PIN
+
+    #define TOUCH_BUTTONS_HW_SPI
+    #define TOUCH_BUTTONS_HW_SPI_DEVICE          1
+
+    #define LCD_BACKLIGHT_PIN                 EXP1_08_PIN
+    #ifndef TFT_WIDTH
+      #define TFT_WIDTH                        480
+    #endif
+    #ifndef TFT_HEIGHT
+      #define TFT_HEIGHT                       320
+    #endif
+
+    #define TOUCH_CS_PIN                      EXP1_06_PIN   // SPI1_NSS
+    #define TOUCH_SCK_PIN                     EXP2_09_PIN   // SPI1_SCK
+    #define TOUCH_MISO_PIN                    EXP2_10_PIN   // SPI1_MISO
+    #define TOUCH_MOSI_PIN                    EXP2_05_PIN   // SPI1_MOSI
+
+    #define BTN_EN1                           EXP2_08_PIN
+    #define BTN_EN2                           EXP2_06_PIN
+
+    #define LCD_READ_ID                       0xD3
+    #define LCD_USE_DMA_SPI
+
+    #define TFT_BUFFER_SIZE                  14400
+
+
   #else
 
     #define LCD_PINS_RS              EXP1_07_PIN
