@@ -499,7 +499,6 @@
 
     #define TFT_BUFFER_SIZE                  14400
 
-
   #else
 
     #define LCD_PINS_RS              EXP1_07_PIN
