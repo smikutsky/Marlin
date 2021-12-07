@@ -3768,7 +3768,7 @@
   //#define CUSTOM_MENU_CONFIG_ONLY_IDLE    // Only show custom menu when the machine is idle
 
   #define CONFIG_MENU_ITEM_1_DESC "ESP3D IP"
-  #define CONFIG_MENU_ITEM_1_GCODE "M118 [ESP111]
+  #define CONFIG_MENU_ITEM_1_GCODE "M118 [ESP111]"
   //#define CONFIG_MENU_ITEM_1_CONFIRM        // Show a confirmation dialog before this action
 
   #define CONFIG_MENU_ITEM_2_DESC "WiFi On"
