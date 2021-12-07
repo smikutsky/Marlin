@@ -3761,14 +3761,14 @@
 // Custom Menu: Configuration Menu
 #define CUSTOM_MENU_CONFIG
 #if ENABLED(CUSTOM_MENU_CONFIG)
-  #define CUSTOM_MENU_CONFIG_TITLE "ESP3D"
+  #define CUSTOM_MENU_CONFIG_TITLE "ESP3D Config"
   //#define CUSTOM_MENU_CONFIG_SCRIPT_DONE "M117 Wireless Script Done"
   #define CUSTOM_MENU_CONFIG_SCRIPT_AUDIBLE_FEEDBACK
   #define CUSTOM_MENU_CONFIG_SCRIPT_RETURN  // Return to status screen after a script
   //#define CUSTOM_MENU_CONFIG_ONLY_IDLE    // Only show custom menu when the machine is idle
 
-  #define CONFIG_MENU_ITEM_1_DESC "ESP3D IP"
-  #define CONFIG_MENU_ITEM_1_GCODE "M118 [ESP111]"
+  #define CONFIG_MENU_ITEM_1_DESC "EDP3D Info"
+  #define CONFIG_MENU_ITEM_1_GCODE "M118 [ESP420] plain"
   //#define CONFIG_MENU_ITEM_1_CONFIRM        // Show a confirmation dialog before this action
 
   #define CONFIG_MENU_ITEM_2_DESC "WiFi On"
@@ -3787,8 +3787,8 @@
   #define CONFIG_MENU_ITEM_5_GCODE "M118 [ESP103] AP"
   //#define CONFIG_MENU_ITEM_5_CONFIRM
 
-  #define CONFIG_MENU_ITEM_6_DESC "EDP3D Info"
-  #define CONFIG_MENU_ITEM_6_GCODE "M118 [ESP420] plain"
+  #define CONFIG_MENU_ITEM_6_DESC "Restart EDP3D"
+  #define CONFIG_MENU_ITEM_6_GCODE "M118 [ESP444] RESTART"
   //#define CONFIG_MENU_ITEM_6_CONFIRM
 #endif
 
