@@ -363,7 +363,7 @@
  * Specify whether the power supply is active HIGH or active LOW.
  */
 //#define PSU_CONTROL
-#define PSU_NAME "Meanwell LRS-350-24"
+#define PSU_NAME "Mean Well LRS-350-24"
 
 #if ENABLED(PSU_CONTROL)
   //#define MKS_PWC                 // Using the MKS PWC add-on
