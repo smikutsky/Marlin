@@ -545,7 +545,7 @@
  *
  * Define one or both of these to override the default 0-255 range.
  */
-#define FAN_MIN_PWM 10
+#define FAN_MIN_PWM 15
 //#define FAN_MAX_PWM 128
 
 /**
@@ -1270,7 +1270,7 @@
 #endif
 
 // Play a beep when the feedrate is changed from the Status Screen
-//#define BEEP_ON_FEEDRATE_CHANGE
+#define BEEP_ON_FEEDRATE_CHANGE
 #if ENABLED(BEEP_ON_FEEDRATE_CHANGE)
   #define FEEDRATE_CHANGE_BEEP_DURATION   10
   #define FEEDRATE_CHANGE_BEEP_FREQUENCY 440
@@ -1423,7 +1423,7 @@
   //#define SD_IGNORE_AT_STARTUP            // Don't mount the SD card when starting up
   //#define SDCARD_READONLY                 // Read-only SD card (to save over 2K of flash)
 
-  //#define GCODE_REPEAT_MARKERS            // Enable G-code M808 to set repeat markers and do looping
+  #define GCODE_REPEAT_MARKERS              // Enable G-code M808 to set repeat markers and do looping
 
   #define SD_PROCEDURE_DEPTH 1              // Increase if you need more nested M32 calls
 
@@ -3906,9 +3906,13 @@
   #define CONFIG_MENU_ITEM_5_GCODE "M118 [ESP103] AP"
   //#define CONFIG_MENU_ITEM_5_CONFIRM
 
-  #define CONFIG_MENU_ITEM_6_DESC "Restart EDP3D"
-  #define CONFIG_MENU_ITEM_6_GCODE "M118 [ESP444] RESTART"
+  #define CONFIG_MENU_ITEM_6_DESC "Test Notification"
+  #define CONFIG_MENU_ITEM_6_GCODE "M118 [ESP600]Test"
   //#define CONFIG_MENU_ITEM_6_CONFIRM
+
+  #define CONFIG_MENU_ITEM_7_DESC "Restart EDP3D"
+  #define CONFIG_MENU_ITEM_7_GCODE "M118 [ESP444] RESTART"
+  //#define CONFIG_MENU_ITEM_7_CONFIRM
 #endif
 
 /**
