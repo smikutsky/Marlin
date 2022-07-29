@@ -1276,7 +1276,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -58, -14, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 8.5, 20, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1433,7 +1433,7 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true
+#define INVERT_X_DIR false
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR false
 //#define INVERT_I_DIR false
@@ -1491,8 +1491,8 @@
 #define Y_BED_SIZE 235
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -2.5
-#define Y_MIN_POS -24
+#define X_MIN_POS -4.2
+#define Y_MIN_POS -44.1
 #define Z_MIN_POS 0
 #define X_MAX_POS 260
 #define Y_MAX_POS Y_BED_SIZE
