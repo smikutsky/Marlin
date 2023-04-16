@@ -1567,15 +1567,15 @@
    */
   #define POWER_LOSS_RECOVERY
   #if ENABLED(POWER_LOSS_RECOVERY)
-    #define PLR_ENABLED_DEFAULT   false // Power Loss Recovery enabled by default. (Set with 'M413 Sn' & M500)
-    #define BACKUP_POWER_SUPPLY       // Backup power / UPS to move the steppers on power loss
-    //#define POWER_LOSS_ZRAISE       2 // (mm) Z axis raise on resume (on power loss with UPS)
+    #define PLR_ENABLED_DEFAULT    true // Power Loss Recovery enabled by default. (Set with 'M413 Sn' & M500)
+    #define BACKUP_POWER_SUPPLY         // Backup power / UPS to move the steppers on power loss
+    #define POWER_LOSS_ZRAISE        10 // (mm) Z axis raise on resume (on power loss with UPS)
     //#define POWER_LOSS_PIN         44 // Pin to detect power loss. Set to -1 to disable default pin on boards without module.
-    //#define POWER_LOSS_STATE     HIGH // State of pin indicating power loss
+    #define POWER_LOSS_STATE       HIGH // State of pin indicating power loss
     //#define POWER_LOSS_PULLUP         // Set pullup / pulldown as appropriate for your sensor
     //#define POWER_LOSS_PULLDOWN
-    #define POWER_LOSS_PURGE_LEN   20   // (mm) Length of filament to purge on resume
-    //#define POWER_LOSS_RETRACT_LEN 10 // (mm) Length of filament to retract on fail. Requires backup power.
+    #define POWER_LOSS_PURGE_LEN     20 // (mm) Length of filament to purge on resume
+    #define POWER_LOSS_RETRACT_LEN   10 // (mm) Length of filament to retract on fail. Requires backup power.
 
     // Without a POWER_LOSS_PIN the following option helps reduce wear on the SD card,
     // especially with "vase mode" printing. Set too high and vases cannot be continued.
@@ -1723,7 +1723,7 @@
 
   #if ENABLED(BINARY_FILE_TRANSFER)
     // Include extra facilities (e.g., 'M20 F') supporting firmware upload via BINARY_FILE_TRANSFER
-    //#define CUSTOM_FIRMWARE_UPLOAD
+    #define CUSTOM_FIRMWARE_UPLOAD
   #endif
 
   /**
@@ -2276,7 +2276,7 @@
 //
 // G60/G61 Position Save and Return
 //
-//#define SAVED_POSITIONS 1         // Each saved position slot costs 12 bytes
+#define SAVED_POSITIONS 10         // Each saved position slot costs 12 bytes
 
 //
 // G2/G3 Arc Support
@@ -2323,7 +2323,7 @@
 #endif
 
 // Moves (or segments) with fewer steps than this will be joined with the next move
-#define MIN_STEPS_PER_SEGMENT 6
+#define MIN_STEPS_PER_SEGMENT 4
 
 /**
  * Minimum delay before and after setting the stepper DIR (in ns)
@@ -2392,8 +2392,8 @@
 // @section serial
 
 // The ASCII buffer for serial input
-#define MAX_CMD_SIZE 96
-#define BUFSIZE 4
+#define MAX_CMD_SIZE 255
+#define BUFSIZE 8
 
 // Transmission to Host Buffer Size
 // To save 386 bytes of flash (and TX_BUFFER_SIZE+3 bytes of RAM) set to 0.
@@ -2402,7 +2402,7 @@
 // For debug-echo: 128 bytes for the optimal speed.
 // Other output doesn't need to be that speedy.
 // :[0, 2, 4, 8, 16, 32, 64, 128, 256]
-#define TX_BUFFER_SIZE 0
+#define TX_BUFFER_SIZE 128
 
 // Host Receive Buffer Size
 // Without XON/XOFF flow control (see SERIAL_XON_XOFF below) 32 bytes should be enough.
@@ -3199,7 +3199,7 @@
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continuous reporting.
    */
-  //#define TMC_DEBUG
+  //#define TMC_DEBUG 
 
   /**
    * You can set your own advanced settings by filling in predefined functions.
@@ -3622,7 +3622,7 @@
  * Add the M16 G-code to compare a string to the MACHINE_NAME.
  * M16 with a non-matching string causes the printer to halt.
  */
-//#define EXPECTED_PRINTER_CHECK
+#define EXPECTED_PRINTER_CHECK
 
 // @section volumetrics
 
@@ -3671,7 +3671,7 @@
 #define FASTER_GCODE_PARSER
 
 #if ENABLED(FASTER_GCODE_PARSER)
-  //#define GCODE_QUOTED_STRINGS  // Support for quoted string parameters
+  #define GCODE_QUOTED_STRINGS  // Support for quoted string parameters
 #endif
 
 // Support for MeatPack G-code compression (https://github.com/scottmudge/OctoPrint-MeatPack)
@@ -3721,10 +3721,10 @@
  * Add G-codes M810-M819 to define and run G-code macros.
  * Macros are not saved to EEPROM.
  */
-//#define GCODE_MACROS
+#define GCODE_MACROS
 #if ENABLED(GCODE_MACROS)
-  #define GCODE_MACROS_SLOTS       5  // Up to 10 may be used
-  #define GCODE_MACROS_SLOT_SIZE  50  // Maximum length of a single macro
+  #define GCODE_MACROS_SLOTS      10  // Up to 10 may be used
+  #define GCODE_MACROS_SLOT_SIZE  64  // Maximum length of a single macro
 #endif
 
 /**
