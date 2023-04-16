@@ -667,9 +667,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  27.03
-    #define DEFAULT_Ki   2.45
-    #define DEFAULT_Kd  74.60
+    #define DEFAULT_Kp 30.28
+    #define DEFAULT_Ki 3.64
+    #define DEFAULT_Kd 62.99
   #endif
 #endif
 
@@ -752,9 +752,9 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 117.76
-  #define DEFAULT_bedKi  23.00
-  #define DEFAULT_bedKd 401.95
+    #define DEFAULT_bedKp 149.91
+    #define DEFAULT_bedKi 29.28
+    #define DEFAULT_bedKd 511.70
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -1665,7 +1665,7 @@
 // @section homing
 
 //#define NO_MOTION_BEFORE_HOMING // Inhibit movement until all axes have been homed. Also enable HOME_AFTER_DEACTIVATE for extra safety.
-//#define HOME_AFTER_DEACTIVATE   // Require rehoming after steppers are deactivated. Also enable NO_MOTION_BEFORE_HOMING for extra safety.
+#define HOME_AFTER_DEACTIVATE     // Require rehoming after steppers are deactivated. Also enable NO_MOTION_BEFORE_HOMING for extra safety.
 
 /**
  * Set Z_IDLE_HEIGHT if the Z-Axis moves on its own when steppers are disabled.
@@ -1698,7 +1698,7 @@
 #define Y_BED_SIZE 235
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -2.2
+#define X_MIN_POS -6.2
 #define Y_MIN_POS -24.1
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
@@ -2545,7 +2545,7 @@
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
 //#define INDIVIDUAL_AXIS_HOMING_MENU
-//#define INDIVIDUAL_AXIS_HOMING_SUBMENU
+#define INDIVIDUAL_AXIS_HOMING_SUBMENU
 
 //
 // SPEAKER/BUZZER
