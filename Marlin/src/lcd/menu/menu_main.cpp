@@ -326,16 +326,16 @@ void menu_main() {
     SUBMENU(MSG_MOTION, menu_motion);
   }
 
-  #if BOTH(ADVANCED_PAUSE_FEATURE, DISABLE_ENCODER)
-    FILAMENT_CHANGE_ITEM();
-  #endif
-
   #if HAS_CUTTER
     SUBMENU(MSG_CUTTER(MENU), STICKY_SCREEN(menu_spindle_laser));
   #endif
 
   #if HAS_TEMPERATURE
     SUBMENU(MSG_TEMPERATURE, menu_temperature);
+  #endif
+
+  #if ENABLED(ADVANCED_PAUSE_FEATURE)
+    FILAMENT_CHANGE_ITEM();
   #endif
 
   #if HAS_POWER_MONITOR
@@ -493,10 +493,6 @@ void menu_main() {
         GET_TEXT_F(MSG_HOST_SHUTDOWN), (const char *)nullptr, F("?")
       );
     });
-  #endif
-
-  #if ENABLED(ADVANCED_PAUSE_FEATURE) && DISABLED(DISABLE_ENCODER)
-    FILAMENT_CHANGE_ITEM();
   #endif
 
   END_MENU();
