@@ -3776,27 +3776,27 @@
 
   #define CONFIG_MENU_ITEM_1_DESC "EDP3D Info"
   #define CONFIG_MENU_ITEM_1_GCODE "M118 [ESP420] plain"
-  //#define CONFIG_MENU_ITEM_1_CONFIRM        // Show a confirmation dialog before this action
+  //#define CONFIG_MENU_ITEM_1_CONFIRM      // Show a confirmation dialog before this action
 
-  #define CONFIG_MENU_ITEM_4_DESC "Station Mode"
-  #define CONFIG_MENU_ITEM_4_GCODE "M118 [ESP110]WIFI-STA"
-  //#define CONFIG_MENU_ITEM_4_CONFIRM
+  #define CONFIG_MENU_ITEM_2_DESC "Station Mode"
+  #define CONFIG_MENU_ITEM_2_GCODE "M118 [ESP110]WIFI-STA"
+  //#define CONFIG_MENU_ITEM_2_CONFIRM
 
-  #define CONFIG_MENU_ITEM_5_DESC "AP Mode"
-  #define CONFIG_MENU_ITEM_5_GCODE "M118 [ESP110]WIFI-AP"
-  //#define CONFIG_MENU_ITEM_5_CONFIRM
-
-  #define CONFIG_MENU_ITEM_3_DESC "WiFi Off"
-  #define CONFIG_MENU_ITEM_3_GCODE "M118 [ESP110]OFF"
+  #define CONFIG_MENU_ITEM_3_DESC "AP Mode"
+  #define CONFIG_MENU_ITEM_3_GCODE "M118 [ESP110]WIFI-AP"
   //#define CONFIG_MENU_ITEM_3_CONFIRM
 
-  #define CONFIG_MENU_ITEM_6_DESC "Test Notification"
-  #define CONFIG_MENU_ITEM_6_GCODE "M118 [ESP600]Test"
-  //#define CONFIG_MENU_ITEM_6_CONFIRM
+  #define CONFIG_MENU_ITEM_4_DESC "WiFi Off"
+  #define CONFIG_MENU_ITEM_4_GCODE "M118 [ESP110]OFF"
+  //#define CONFIG_MENU_ITEM_4_CONFIRM
 
-  #define CONFIG_MENU_ITEM_7_DESC "Restart EDP3D"
-  #define CONFIG_MENU_ITEM_7_GCODE "M118 [ESP444]RESTART"
-  //#define CONFIG_MENU_ITEM_7_CONFIRM
+  #define CONFIG_MENU_ITEM_5_DESC "Test Notification"
+  #define CONFIG_MENU_ITEM_5_GCODE "M118 [ESP600]Test"
+  //#define CONFIG_MENU_ITEM_5_CONFIRM
+
+  #define CONFIG_MENU_ITEM_6_DESC "Restart EDP3D"
+  #define CONFIG_MENU_ITEM_6_GCODE "M118 [ESP444]RESTART"
+  //#define CONFIG_MENU_ITEM_6_CONFIRM
 #endif
 
 // @section custom buttons
