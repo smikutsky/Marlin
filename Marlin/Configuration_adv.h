@@ -1913,7 +1913,7 @@
 
   // A smaller font may be used on the Info Screen. Costs 2434 bytes of flash.
   // Western only. Not available for Cyrillic, Kana, Turkish, Greek, or Chinese.
-  #define USE_SMALL_INFOFONT
+  //#define USE_SMALL_INFOFONT
 
   /**
    * Graphical Display Sleep
