@@ -2967,7 +2967,7 @@
 //
 // MKS MINI12864 V3 is an alias for FYSETC_MINI_12864_2_1. Type A/B. NeoPixel RGB Backlight.
 //
-//#define MKS_MINI_12864_V3
+#define MKS_MINI_12864_V3
 
 //
 // MKS LCD12864A/B with graphic controller and SD support. Follows MKS_MINI_12864 pinout.
@@ -2990,7 +2990,7 @@
 // BigTreeTech Mini 12864 V1.0 is an alias for FYSETC_MINI_12864_2_1. Type A/B. NeoPixel RGB Backlight.
 // https://github.com/bigtreetech/MINI-12864/tree/master/mini12864_v1.0
 //
-#define BTT_MINI_12864_V1
+//#define BTT_MINI_12864_V1
 
 //
 // Factory display for Creality CR-10 / CR-7 / Ender-3
