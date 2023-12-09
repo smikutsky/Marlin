@@ -171,6 +171,10 @@
   #include "../lcd/extui/dgus/DGUSDisplayDef.h"
 #endif
 
+#if ENABLED(RTS_AVAILABLE)
+  #include "../lcd/extui/dgus/elegoo/DGUSDisplayDef.h"
+#endif
+
 #pragma pack(push, 1) // No padding between variables
 
 #if HAS_ETHERNET
@@ -562,6 +566,26 @@ typedef struct SettingsDataStruct {
     celsius_t mks_min_extrusion_temp;                   // Min E Temp (shadow M302 value)
   #endif
 
+  //
+  // RTS UI
+  //
+  #if ENABLED(RTS_AVAILABLE)
+    celsius_t pla_extrusion_temp;
+    celsius_t pla_bed_temp;
+     
+    celsius_t petg_extrusion_temp;
+    celsius_t petg_bed_temp;
+
+    celsius_t abs_extrusion_temp;
+    celsius_t abs_bed_temp;
+
+    celsius_t tpu_extrusion_temp;
+    celsius_t tpu_bed_temp;
+
+    celsius_t probe_extrusion_temp;
+    celsius_t probe_bed_temp;  
+  #endif
+
   #if HAS_MULTI_LANGUAGE
     uint8_t ui_language;                                // M414 S
   #endif
@@ -727,7 +751,7 @@ void MarlinSettings::postprocess() {
 
   bool MarlinSettings::size_error(const uint16_t size) {
     if (size != datasize()) {
-      DEBUG_ERROR_MSG("EEPROM datasize error."
+      DEBUG_ERROR_MSG("EEPROM datasize error."//9999---
         #if ENABLED(MARLIN_DEV_MODE)
           " (Actual:", size, " Expected:", datasize(), ")"
         #endif
@@ -741,6 +765,16 @@ void MarlinSettings::postprocess() {
    * M500 - Store Configuration
    */
   bool MarlinSettings::save() {
+
+
+
+
+
+    planner.synchronize();
+
+
+
+
     float dummyf = 0;
     char ver[4] = "ERR";
 
@@ -1598,6 +1632,26 @@ void MarlinSettings::postprocess() {
     #endif
 
     //
+    // RTS UI
+    //
+    #if ENABLED(RTS_AVAILABLE)
+      EEPROM_WRITE(pla_extrusion_temp);
+      EEPROM_WRITE(pla_bed_temp);
+
+      EEPROM_WRITE(petg_extrusion_temp);
+      EEPROM_WRITE(petg_bed_temp);
+
+      EEPROM_WRITE(abs_extrusion_temp);
+      EEPROM_WRITE(abs_bed_temp);
+
+      EEPROM_WRITE(tpu_extrusion_temp);
+      EEPROM_WRITE(tpu_bed_temp);
+
+      EEPROM_WRITE(probe_extrusion_temp);
+      EEPROM_WRITE(probe_bed_temp);
+    #endif
+
+    //
     // Selected LCD language
     //
     #if HAS_MULTI_LANGUAGE
@@ -1649,6 +1703,15 @@ void MarlinSettings::postprocess() {
     }
 
     TERN_(EXTENSIBLE_UI, ExtUI::onSettingsStored(!eeprom_error));
+    //
+    //
+    //
+    planner.synchronize();
+    //
+    //
+    //
+
+
 
     return !eeprom_error;
   }
@@ -2570,6 +2633,24 @@ void MarlinSettings::postprocess() {
         EEPROM_READ(mks_min_extrusion_temp);
       #endif
 
+
+      #if ENABLED(DGUS_LCD_UI_MKS)
+        EEPROM_READ(pla_extrusion_temp);
+        EEPROM_READ(pla_bed_temp);
+
+        EEPROM_READ(petg_extrusion_temp);
+        EEPROM_READ(petg_bed_temp);
+
+        EEPROM_READ(abs_extrusion_temp);
+        EEPROM_READ(abs_bed_temp);
+
+        EEPROM_READ(tpu_extrusion_temp);
+        EEPROM_READ(tpu_bed_temp);
+
+        EEPROM_READ(probe_extrusion_temp);
+        EEPROM_READ(probe_bed_temp);
+      #endif
+
       //
       // Selected LCD language
       //
@@ -3214,6 +3295,23 @@ void MarlinSettings::reset() {
   //
   TERN_(POWER_LOSS_RECOVERY, recovery.enable(ENABLED(PLR_ENABLED_DEFAULT)));
 
+  #if ENABLED(RTS_AVAILABLE)
+    #if ENABLED(TJC_AVAILABLE)
+      #if ENABLED(POWER_LOSS_RECOVERY)
+        if(recovery.enabled==0)
+        { 
+          LCD_SERIAL_2.printf("plrbutton.val=0");
+          LCD_SERIAL_2.printf("\xff\xff\xff"); 
+        }
+        else if(recovery.enabled==1)
+        {
+          LCD_SERIAL_2.printf("plrbutton.val=1");
+          LCD_SERIAL_2.printf("\xff\xff\xff"); 
+        }
+      #endif           
+    #endif
+  #endif 
+
   //
   // Firmware Retraction
   //
@@ -3313,6 +3411,11 @@ void MarlinSettings::reset() {
   // MKS UI controller
   //
   TERN_(DGUS_LCD_UI_MKS, MKS_reset_settings());
+
+  //
+  // RTS UI
+  //
+  TERN_(RTS_AVAILABLE, RTS_reset_settings());
 
   //
   // Ender-3 V2 with ProUI
