@@ -1564,7 +1564,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 8.5, 20, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 35 , 5, 0 }
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
@@ -1574,7 +1574,7 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 5
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (133*60)
@@ -1808,12 +1808,12 @@
 #define Y_BED_SIZE 235
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -6.2
-#define Y_MIN_POS -14.5
+#define X_MIN_POS 0
+#define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE
-#define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 250
+#define X_MAX_POS X_BED_SIZE+50
+#define Y_MAX_POS Y_BED_SIZE+50
+#define Z_MAX_POS 250+100
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -2196,7 +2196,7 @@
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
-#define LCD_BED_TRAMMING
+//#define LCD_BED_TRAMMING
 
 #if ENABLED(LCD_BED_TRAMMING)
   #define BED_TRAMMING_INSET_LFRB { 30, 30, 30, 30 } // (mm) Left, Front, Right, Back insets
@@ -3548,11 +3548,11 @@
   #endif
 
   // Use some of the NeoPixel LEDs for static (background) lighting
-  #define NEOPIXEL_BKGD_INDEX_FIRST   2 // Index of the first background LED
-  #define NEOPIXEL_BKGD_INDEX_LAST    2 // Index of the last background LED
+  #define NEOPIXEL_BKGD_INDEX_FIRST   0 // Index of the first background LED
+  #define NEOPIXEL_BKGD_INDEX_LAST    0 // Index of the last background LED
   #define NEOPIXEL_BKGD_COLOR         { 255, 255, 255, 0 }  // R, G, B, W
   #define NEOPIXEL_BKGD_TIMEOUT_COLOR {  25,  25,  25, 0 }  // R, G, B, W
-  #define NEOPIXEL_BKGD_ALWAYS_ON       // Keep the backlight on when other NeoPixels are off
+  //#define NEOPIXEL_BKGD_ALWAYS_ON     // Keep the backlight on when other NeoPixels are off
 #endif
 
 /**

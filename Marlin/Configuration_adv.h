@@ -1959,7 +1959,7 @@
 
   // A smaller font may be used on the Info Screen. Costs 2434 bytes of flash.
   // Western only. Not available for Cyrillic, Kana, Turkish, Greek, or Chinese.
-  #define USE_SMALL_INFOFONT
+  //#define USE_SMALL_INFOFONT
 
   /**
    * Graphical Display Sleep
@@ -2224,7 +2224,7 @@
 // LCD Backlight Timeout
 // Requires a display with a controllable backlight
 //
-//#define LCD_BACKLIGHT_TIMEOUT_MINS 1  // (minutes) Timeout before turning off the backlight
+#define LCD_BACKLIGHT_TIMEOUT_MINS 2  // (minutes) Timeout before turning off the backlight
 #if defined(DISPLAY_SLEEP_MINUTES) || defined(LCD_BACKLIGHT_TIMEOUT_MINS)
   #define EDITABLE_DISPLAY_TIMEOUT      // Edit timeout with M255 S<minutes> and a menu item
 #endif
