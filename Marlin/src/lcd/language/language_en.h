@@ -155,6 +155,7 @@ namespace LanguageNarrow_en {
   LSTR MSG_SPINDLE_REVERSE                = _UxGT("Spindle Reverse");
   LSTR MSG_SWITCH_PS_ON                   = _UxGT("Switch Power On");
   LSTR MSG_SWITCH_PS_OFF                  = _UxGT("Switch Power Off");
+  LSTR MSG_POWER_EDM_FAULT                = _UxGT("Power EDM Fault");
   LSTR MSG_EXTRUDE                        = _UxGT("Extrude");
   LSTR MSG_RETRACT                        = _UxGT("Retract");
   LSTR MSG_MOVE_AXIS                      = _UxGT("Move Axis");
@@ -501,6 +502,7 @@ namespace LanguageNarrow_en {
   LSTR MSG_RESUME_PRINT                   = _UxGT("Resume Print");
   LSTR MSG_STOP_PRINT                     = _UxGT("Stop Print");
   LSTR MSG_OUTAGE_RECOVERY                = _UxGT("Power Outage");
+  LSTR MSG_RESUME_BED_TEMP                = _UxGT("Resume Bed Temp");
   LSTR MSG_HOST_START_PRINT               = _UxGT("Host Start");
   LSTR MSG_PRINTING_OBJECT                = _UxGT("Print Obj");
   LSTR MSG_CANCEL_OBJECT                  = _UxGT("Cancel Obj");
